@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+*storybook.log
 
 node_modules
 dist
@@ -40,5 +41,4 @@ dist-ssr
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-
-*storybook.log
+coverage/
