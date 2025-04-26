@@ -1,5 +1,11 @@
-export const Footer = () => (
-  <footer className="bg-gray-800 text-white py-4">
+import React from 'react';
+
+type FooterProps = {
+  className?: string;
+};
+
+export const Footer: React.FC<FooterProps> = ({ className = '' }) => (
+  <footer className={`bg-gray-800 text-white py-4 ${className}`}>
     <div className="container mx-auto text-center">
       <p>&copy; 2023 Your Company. All rights reserved.</p>
       <p>
