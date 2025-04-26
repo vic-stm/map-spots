@@ -1,11 +1,23 @@
-import './App.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { RouterProvider } from '@tanstack/react-router';
+import React from 'react';
+import { router } from './config/routes';
 
-function App() {
+export const App: React.FC = () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 1000 * 60 * 5, // 5 minutos
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
+
   return (
-    <main className="min-h-screen bg-blue-900 flex items-start justify-center">
-      <h1 className="text-white text-5xl m-6 font-bold">Starting project!!</h1>
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   );
-}
+};
 
 export default App;
