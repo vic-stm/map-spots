@@ -1,82 +1,138 @@
-# React + TypeScript + Vite
+# 🗺️ Map Spots
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Map Spots is a web application built with React and TypeScript that allows users to mark, categorize, and manage points of interest on a map. Users can identify places they have visited or wish to visit, and classify them into categories such as "good for remote work", "ideal for parties", "specialty coffee", and more.
 
-Currently, two official plugins are available:
+## 📚 Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [🗺️ Map Spots](#️-map-spots)
+  - [📚 Table of Contents](#-table-of-contents)
+  - [✨ Features](#-features)
+  - [🚀 Getting Started](#-getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [💻 Development](#-development)
+    - [📕 Storybook](#-storybook)
+  - [🧪 Testing](#-testing)
+    - [Unit Tests](#unit-tests)
+    - [End-to-End (E2E) Tests](#end-to-end-e2e-tests)
+  - [📁 Project Structure](#-project-structure)
+  - [🛠️ Troubleshooting](#️-troubleshooting)
+  - [📝 License](#-license)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Mark and manage custom spots on a map 📍
+- Categorize locations (e.g., remote work, parties, coffee shops) 🏷️
+- Built with React, TypeScript, Vite, and TailwindCSS ⚡
+- Storybook for UI component development 📖
+- End-to-end testing with Playwright 🎭
+- Unit testing with Vitest 🧪
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v22 or higher recommended) 🟢
+- npm (v9 or higher recommended) 📦
+
+### Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/vic-stm/map-spots.git
+cd map-spots
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 💻 Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+To start the development server with hot reloading:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
+```bash
+npm run dev
 ```
 
-## Playwright
-Inside that directory, you can run several commands:
-```
-  npx playwright test
-    Runs the end-to-end tests.
+Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
 
-  npx playwright test --ui
-    Starts the interactive UI mode.
+### 📕 Storybook
 
-  npx playwright test --project=chromium
-    Runs the tests only on Desktop Chrome.
+To run Storybook for UI component development:
 
-  npx playwright test example
-    Runs the tests in a specific file.
-
-  npx playwright test --debug
-    Runs the tests in debug mode.
-
-  npx playwright codegen
-    Auto generate tests with Codegen.
+```bash
+npm run storybook
 ```
 
-We suggest that you begin by typing:
+## 🧪 Testing
+
+### Unit Tests
+
+Run all unit tests with Vitest:
+
+```bash
+npm run test
+```
+
+To open the Vitest UI:
+
+```bash
+npm run test:ui
+```
+
+To generate a coverage report:
+
+```bash
+npm run test:coverage
+```
+
+Then open the [Coverage report](coverage/index.html) file in a browser or use a coverage viewer.
+
+### End-to-End (E2E) Tests
+
+Run Playwright E2E tests:
+
+```bash
+npm run e2e
+```
+
+To run E2E tests in headed mode with the Playwright UI:
+
+```bash
+npm run e2e:ui
+```
+
+## 📁 Project Structure
 
 ```
-  npx playwright test
+.
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── config/          # App configuration files
+│   ├── pages/           # Page-level components
+│   ├── App.tsx          # Main app component
+│   └── main.tsx         # App entry point
+├── e2e/                 # Playwright E2E tests
+├── tests-examples/      # Example test files
+├── public/              # Static assets
+├── package.json         # Project metadata and scripts
+├── vite.config.ts       # Vite configuration
+└── README.md            # Project documentation
 ```
+
+## 🛠️ Troubleshooting
+
+- If you encounter issues with dependencies, try deleting `node_modules` and `package-lock.json` and reinstalling:
+  ```bash
+  rm -rf node_modules package-lock.json
+  npm install
+  ```
+- For Playwright errors, ensure all browsers are installed:
+  ```bash
+  npx playwright install
+  ```
+- If Storybook fails to start, check for conflicting ports or clear the `.storybook` cache.
+- For TypeScript or Vite errors, ensure your Node.js version matches the recommended version.
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
