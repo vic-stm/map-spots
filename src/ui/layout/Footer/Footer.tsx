@@ -5,7 +5,7 @@ type FooterProps = {
 };
 
 export const Footer: React.FC<FooterProps> = ({ className = '' }) => (
-  <footer className={`bg-gray-800 text-white py-4 ${className}`}>
+  <footer className={`bg-gray-800 dark:bg-indigo-600 text-white py-4 ${className}`}>
     <div className="container mx-auto text-center">
       <p>&copy; 2023 Your Company. All rights reserved.</p>
       <p>
